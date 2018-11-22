@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-//app.use(requireHTTPS);
+
 app.use(express.static(path.join(__dirname, 'Eterna')));
 
 // app.get('/*', function(req, res){
