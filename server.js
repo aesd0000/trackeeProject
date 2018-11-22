@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
-
+//test
 
 app.use(express.static(path.join(__dirname, 'Eterna')));
 
