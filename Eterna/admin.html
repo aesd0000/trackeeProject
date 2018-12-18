@@ -36,7 +36,7 @@
   ======================================================= -->
 </head>
 
-<body>
+<body onload="admin_onload()">
 
   <div id="wrapper">
 
@@ -127,7 +127,7 @@
           <div class="row">
             <div class="span12">
               <h2><strong><span class="colored">Tracking Number</span></strong></h2>
-              
+
             </div>
           </div>
         </div>
@@ -141,116 +141,89 @@
 
 
         <div class="span12">
-            <h4 class="title"><strong>ตารางการจัดส่ง</strong> สำหรับผู้ดูแล<span></span></h4>
+          <h4 class="title"><strong>ตารางการจัดส่ง</strong> สำหรับผู้ดูแล<span></span></h4>
 
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>
-                    ลำดับ
-                  </th>
-                  <th>
-                      เลขพัสดุ
-                  </th>
-                  <th>
-                    ชื่อ
-                  </th>
-                  <th>
-                    นามสกุล
-                  </th>
-                  <th>
-                    ที่อยู่
-                  </th>
-                  <th>
-                    รหัสไปรษณีย์
-                  </th>
-                  <th>
-                    เบอร์โทรศัพท์
-                  </th>
-                  <th>
-                      ประเภทพัสดุ
-                  </th>
-                  <th>
-                      น้ำหนัก (กก.)
-                  </th>
-                  <th>
-                      สถานะ
-                  </th>
-                  
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    1
-                  </td>
-                  <td>
-                    0221121546
-                  </td>
-                  <td>
-                    ปฐม
-                  </td>
-                  <td>
-                    แออ่วม
-                  </td>
-                  <td>
-                    36/3 ถ.รามอินทรา กรุงเทพมหานครฯ
-                  </td>
-                  <td>
-                    10100
-                  </td>
-                  <td>
-                    0879845621
-                  </td>
-                  <td>
-                      ทั่วไป
-                  </td>
-                  <td>
-                      0.7
-                  </td>
-                  <td>
-                      รอนำส่ง
-                  </td>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>
+                  ลำดับ
+                </th>
+                <th>
+                  เลขพัสดุ
+                </th>
+                <th>
+                  ชื่อ
+                </th>
+                <th>
+                  ที่อยู่
+                </th>
+                <th>
+                  รหัสไปรษณีย์
+                </th>
+                <th>
+                  เบอร์โทรศัพท์
+                </th>
+                <th>
+                  ประเภทพัสดุ
+                </th>
 
-                </tr>
-                <tr>
-                        <td>
-                          2
-                        </td>
-                        <td>
-                          7534916820
-                        </td>
-                        <td>
-                          ประหยัด
-                        </td>
-                        <td>
-                          เพราะเงินน้อย
-                        </td>
-                        <td>
-                          30/3 ถ.สมมุติ กรุงเทพมหานครฯ
-                        </td>
-                        <td>
-                          10600
-                        </td>
-                        <td>
-                          0865497731
-                        </td>
-                        <td>
-                            ของแตกหักง่าย
-                        </td>
-                        <td>
-                            2
-                        </td>
-                        <td>
-                            นำส่งเรียบร้อย
-                        </td>
-      
-                </tr>
+              </tr>
+            </thead>
+            <tbody id="myHTMLWrapper">
+              <tr>
+                <td id="admin_list">
+                  1
+                </td>
+                <td id="admin_track">
+                  0221121546
+                </td>
+                <td id="admin_name"> 
+                  ปฐม
+                </td>
+                <td id="admin_address">
+                  36/3 ถ.รามอินทรา กรุงเทพมหานครฯ
+                </td>
+                <td id="admin_postid">
+                  10100
+                </td>
+                <td id="admin_phone">
+                  0879845621
+                </td>
+                <td id="admin_description">
+                  ทั่วไป
+                </td>
+              </tr>
 
-              </tbody>
-            </table>
-          </div>
-                 
+              <tr>
+                <td >
+                  1
+                </td>
+                <td >
+                  0221121546
+                </td>
+                <td > 
+                  ปฐม
+                </td>
+                <td >
+                  36/3 ถ.รามอินทรา กรุงเทพมหานครฯ
+                </td>
+                <td >
+                  10100
+                </td>
+                <td >
+                  0879845621
+                </td>
+                <td>
+                  ทั่วไป
+                </td>
+              </tr>
+ 
+
+            </tbody>
+          </table>
+        </div>
+
     </section>
     <br><br>
 
@@ -280,7 +253,7 @@
                 6500 Thailand
               </address>
               <p>
-                <i class="icon-phone"></i> +668 547 9632  <br>
+                <i class="icon-phone"></i> +668 547 9632 <br>
                 <i class="icon-envelope-alt"></i> trackeeth@tk.com
               </p>
             </div>
@@ -312,7 +285,7 @@
             </div>
 
             <div class="span6">
-              
+
             </div>
           </div>
         </div>
@@ -342,6 +315,9 @@
   <script src="js/jquery.flexslider.js"></script>
   <script src="js/animate.js"></script>
   <script src="js/inview.js"></script>
+
+  <script src="js_core/config.js"></script>
+  <script src="js_core/core.js"></script>
 
   <!-- Template Custom JavaScript File -->
   <script src="js/custom.js"></script>
