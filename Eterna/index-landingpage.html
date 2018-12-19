@@ -98,7 +98,7 @@
                       <a href="index-werehouse.html">Warehouse <i class="icon-angle-down"></i></a>
                       <ul class="dropdown-menu">
                         <li><a href="index-warehouse-detail.html">Your Warehouse</a></li>
-                        
+
                       </ul>
                     </li>
 
@@ -134,14 +134,15 @@
           <div class="row">
             <div class="span12">
               <h2><strong>บริการ <span class="colored">Tracking Number</span></strong></h2>
-              <p class="animated fadeInUp"> เมื่อจัดส่งสินค้าจะได้เลขประจำพัสดุ ท่านสามารถนำมาติดตามการส่งสินค้าได้โดยการนำ
+              <p class="animated fadeInUp"> เมื่อจัดส่งสินค้าจะได้เลขประจำพัสดุ
+                ท่านสามารถนำมาติดตามการส่งสินค้าได้โดยการนำ
                 เลขที่ได้มาใส่ในช่องว่างแล้วกดค้นหา.</p>
-        
-                <div class="input-append">
-                  <input id="search" class="span9 input-large" type="text" placeholder="ใส่เลข Tracking">
-                  <button class="btn btn-theme btn-large"  onclick=track()>ค้นหา</button>
-                </div>
-             
+
+              <div class="input-append">
+                <input id="search" class="span9 input-large" type="text" placeholder="ใส่เลข Tracking">
+                <button class="btn btn-theme btn-large" onclick=track()>ค้นหา</button>
+              </div>
+
             </div>
           </div>
         </div>
@@ -157,7 +158,7 @@
           <div class="span6">
             <div class="flyRight">
               <h4><strong><span class="colored">ชื่อที่อยู่ผู้ส่ง</span></strong></h4>
-              <i class="ico icon-circled icon-bgprimary  icon-user icon-3x"style="background:#b56b3f" ></i>
+              <i class="ico icon-circled icon-bgprimary  icon-user icon-3x" style="background:#b56b3f"></i>
               <p id="sender_name">นายอนุกูล จิ๋วบุญ</p>
               <p id="sender_address">
                 173 ม.1 ต.ห้วยคต อ.ห้วยคต จ.อุทัยธานี 61170
@@ -185,17 +186,8 @@
 
         <div class="row">
           <div class="span12">
-            <div class="flyLeft">
-              <div class="row">
-                  <div class="span1">
-                  <i class="ico icon-circled icon-bgprimary   icon-time icon-2x"></i>
-                  </div id="table">
-                  <div id="date" class="span2" style="margin-top: 15px;"></div>
-                  <div id="time" class="span2" style="margin-top: 15px;"></div>
-                  <div id="detail" class="span2" style="margin-top: 15px;"></div>
-                  <div id="province_log" class="span2" style="margin-top: 15px;"></div>
-              </div>
-            </div>
+            <div class="flyLeft" id="wrapper_table">
+
           </div>
         </div>
 
@@ -228,7 +220,7 @@
                 6500 Thailand
               </address>
               <p>
-                <i class="icon-phone"></i> +668 547 9632  <br>
+                <i class="icon-phone"></i> +668 547 9632 <br>
                 <i class="icon-envelope-alt"></i> trackeeth@tk.com
               </p>
             </div>
@@ -260,7 +252,7 @@
             </div>
 
             <div class="span6">
-              
+
             </div>
           </div>
         </div>
@@ -293,7 +285,7 @@
 
   <script src="js_core/config.js"></script>
   <script src="js_core/core.js"></script>
-  
+
 
   <!-- Template Custom JavaScript File -->
   <script src="js/custom.js"></script>

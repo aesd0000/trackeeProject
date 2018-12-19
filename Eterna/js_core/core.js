@@ -9,7 +9,6 @@ var track = function () {
 
     let x = document.getElementById("myDIV");
 
-
     var search_data = document.getElementById('search').value.trim()
     $.post(urlEndpoint + '/search/cores/track/query', { track: search_data },
         function (returnedData) {
@@ -25,24 +24,15 @@ var track = function () {
             document.getElementById('receiver_phone').innerHTML = returnedData.sender.phone
 
             let track_log = returnedData.table
-            let date = "";
-            let time = "";
-            let detail = "";
-            let province_log = "";
+            let wrapper_table = document.getElementById("wrapper_table");
+            let table_html = "";
             let i;
             for (i = 0; i < track_log.length; i++) {
-                date += track_log[i].date + "<br>"
-                time += track_log[i].time + "<br>"
-                detail += track_log[i].detail + "<br>"
-                province_log += track_log[i].province_log + "<br>"
+                table_html += '<div class="row"><div class="span1"><i class="ico icon-circled icon-bgprimary   icon-time icon-2x"></i></div id="table"><div class="span2" style="margin-top: 15px;">' + track_log[i].date + '</div><div  class="span2" style="margin-top: 15px;">' + track_log[i].time + '</div><div  class="span2" style="margin-top: 15px;">' + track_log[i].detail + '</div><div  class="span2" style="margin-top: 15px;">' + track_log[i].province_log + '</div></div></div>'
+
 
             }
-            document.getElementById('date').innerHTML = date
-            document.getElementById('time').innerHTML = time
-            document.getElementById('detail').innerHTML = detail
-            document.getElementById('province_log').innerHTML = province_log
-
-
+            wrapper_table.innerHTML = table_html
 
 
             if (x.style.display === "none") {
@@ -51,13 +41,14 @@ var track = function () {
 
         }).fail(function () {
             console.log("error");
+            window.alert("ไม่พบข้อมูลที่หา")
         });
 };
 
 
 var ship = function () {
 
-    let add_sender_name = document.getElementById('add_sender_name').value
+    ocument.getElementById('add_sender_name').value
     let add_sender_address = document.getElementById('add_sender_address').value.trim()
     let add_sender_sub_distric = document.getElementById('add_sender_sub_distric').value.trim()
     let add_sender_distric = document.getElementById('add_sender_distric').value.trim()
@@ -135,8 +126,8 @@ function admin_onload() {
             let myHTML = '';
 
             for (let i = 0; i < returnedData.length; i++) {
-                let address_for = returnedData[i].sender.address + " " +returnedData[i].sender.sub_distric + " " + returnedData[i].sender.distric + " " + returnedData[i].sender.province + " " + returnedData[i].sender.postid
-                myHTML += '<tr><td>'+(i+1)+'</td><td>'+returnedData[i].track +'</td> <td >'+returnedData[i].sender.name +'</td> <td >'+address_for+' </td><td >'+returnedData[i].sender.postid +'</td> <td >'+returnedData[i].sender.phone +' </td><td>'+returnedData[i].description +' </td> </tr>' ;
+                let address_for = returnedData[i].sender.address + " " + returnedData[i].sender.sub_distric + " " + returnedData[i].sender.distric + " " + returnedData[i].sender.province + " " + returnedData[i].sender.postid
+                myHTML += '<tr><td>' + (i + 1) + '</td><td><a href="/admin-viewtrack.html?track=' + returnedData[i].track + '">' + returnedData[i].track + '</a></td> <td >' + returnedData[i].sender.name + '</td> <td >' + address_for + ' </td><td >' + returnedData[i].sender.postid + '</td> <td >' + returnedData[i].sender.phone + ' </td><td>' + returnedData[i].description + ' </td> </tr>';
             }
 
             wrapper.innerHTML = myHTML
@@ -146,4 +137,48 @@ function admin_onload() {
             console.log("error");
         });
 
+}
+
+function admin_viewtrack_onload() {
+    
+
+    let admin_viewtrack = getUrlVars() 
+    console.log(admin_viewtrack)
+    $.post(urlEndpoint + '/search/cores/track/query', admin_viewtrack,
+        function (returnedData) {
+
+            console.log(returnedData)
+            document.getElementById('admin_viewtrack_track').innerHTML=returnedData.track
+            document.getElementById('admin_viewtrack_sender_name').value =returnedData.sender.name
+            document.getElementById('admin_viewtrack_sender_address').value =returnedData.sender.address
+            document.getElementById('admin_viewtrack_sender_sub_distric').value =returnedData.sender.sub_distric
+            document.getElementById('admin_viewtrack_sender_distric').value =returnedData.sender.distric
+            document.getElementById('admin_viewtrack_sender_province').value =returnedData.sender.province
+            document.getElementById('admin_viewtrack_sender_postid').value =returnedData.sender.postid
+            document.getElementById('admin_viewtrack_sender_phone').value =returnedData.sender.phone
+            document.getElementById('admin_viewtrack_sender_description').value =returnedData.description
+            document.getElementById('admin_viewtrack_sender_weight').value =returnedData.description
+        
+            document.getElementById('admin_viewtrack_receiver_name').value =returnedData.receiver.name
+            document.getElementById('admin_viewtrack_receiver_address').value =returnedData.receiver.address
+            document.getElementById('admin_viewtrack_receiver_sub_distric').value =returnedData.receiver.sub_distric
+            document.getElementById('admin_viewtrack_receiver_distric').value =returnedData.receiver.distric
+            document.getElementById('admin_viewtrack_receiver_province').value =returnedData.receiver.province
+            document.getElementById('admin_viewtrack_receiver_postid').value =returnedData.receiver.postid
+            document.getElementById('admin_viewtrack_receiver_phone').value =returnedData.receiver.phone
+
+        }).fail(function () {
+            console.log("error");
+            window.alert("ไม่พบข้อมูลที่หา")
+        });
+
+
+}
+
+function getUrlVars() {
+    let vars = {};
+    let parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
 }

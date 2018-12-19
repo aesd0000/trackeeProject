@@ -36,7 +36,7 @@
   ======================================================= -->
 </head>
 
-<body onload="admin_onload()">
+<body onload="admin_viewtrack_onload()">
 
   <div id="wrapper">
 
@@ -150,86 +150,148 @@
 
         <div class="span12">
           <h4 class="title"><strong>ตารางการจัดส่ง</strong> สำหรับผู้ดูแล<span></span></h4>
+          <br>
+          <div class="row">
+              <div class="span4">
+                  <h4 >
+                      Tracking Number
+                  </h4> 
+              </div>
+            <div class="span8">
+              <h4 id="admin_viewtrack_track">
+                test
+              </h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span6">
+              <p class="animated fadeInUp">กรุณากรอกข้อมูลให้ครบถ้วน</p>
+              <h3>ชื่อที่อยู่ผู้ส่ง</h3>
+              <form>
+                <div class="input-append" style="font-size: 20px;">
+                  <p>
+                    ชื่อ-นามสกุล
+                  </p>
+                  <input disabled id="admin_viewtrack_sender_name" class="span6 input-mediam" type="text" placeholder="ชื่อ-นามสกุล">
+                </div>
 
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>
-                  ลำดับ
-                </th>
-                <th>
-                  เลขพัสดุ
-                </th>
-                <th>
-                  ชื่อ
-                </th>
-                <th>
-                  ที่อยู่
-                </th>
-                <th>
-                  รหัสไปรษณีย์
-                </th>
-                <th>
-                  เบอร์โทรศัพท์
-                </th>
-                <th>
-                  ประเภทพัสดุ
-                </th>
+                <div  class="input-append" style="font-size: 20px;">
+                    <p>
+                        บ้านเลขที่
+                      </p>
+                  <input disabled id="admin_viewtrack_sender_address" class="span6 input-mediam" type="text" placeholder="บ้านเลขที่">
+                </div>
 
-              </tr>
-            </thead>
-            <tbody id="myHTMLWrapper">
-              <tr>
-                <td id="admin_list">
-                  1
-                </td>
-                <td id="admin_track">
-                  <a href="/faq.html?">0221121546</a>
-                </td>
-                <td id="admin_name"> 
-                  ปฐม
-                </td>
-                <td id="admin_address">
-                  36/3 ถ.รามอินทรา กรุงเทพมหานครฯ
-                </td>
-                <td id="admin_postid">
-                  10100
-                </td>
-                <td id="admin_phone">
-                  0879845621
-                </td>
-                <td id="admin_description">
-                  ทั่วไป
-                </td>
-              </tr>
+                <div class="input-append" style="font-size: 20px;">
+                    <p>
+                        ตำบล
+                      </p>
+                  <input disabled id="admin_viewtrack_sender_sub_distric" class="span6 input-mediam" type="text" placeholder="ตำบล">
+                </div>
 
-              <tr>
-                <td >
-                  1
-                </td>
-                <td >
-                  0221121546
-                </td>
-                <td > 
-                  ปฐม
-                </td>
-                <td >
-                  36/3 ถ.รามอินทรา กรุงเทพมหานครฯ
-                </td>
-                <td >
-                  10100
-                </td>
-                <td >
-                  0879845621
-                </td>
-                <td>
-                  ทั่วไป
-                </td>
-              </tr>
- 
+                <div class="input-append" style="font-size: 20px;">
+                    <p>
+                        อำเภอ
+                      </p>
+                  <input disabled id="admin_viewtrack_sender_distric" class="span6 input-mediam" type="text" placeholder="อำเภอ">
+                </div>
 
-            </tbody>
-          </table>
+                <div class="input-append" style="font-size: 20px;">
+                    <p>
+                        จังหวัด
+                      </p>
+                  <input disabled id="admin_viewtrack_sender_province" class="span6 input-mediam" type="text" placeholder="จังหวัด">
+                </div>
+
+                <div class="input-append" style="font-size: 20px;">
+                    <p>
+                      รหัสไปรษณีย์
+                      </p>
+                  <input disabled id="admin_viewtrack_sender_postid" class="span6 input-mediam" type="text" placeholder="รหัสไปรษณี">
+                </div>
+
+                <div class="input-append" style="font-size: 20px;">
+                    <p>
+                        เบอร์โทรศัพท์
+                      </p>
+                  <input disabled id="admin_viewtrack_sender_phone" class="span6 input-mediam" type="text" placeholder="เบอร์โทรศัพท์">
+                </div>
+
+                <div class="input-append" style="font-size: 20px;">
+                    <p>
+                        ประเภทของพัสดุ
+                      </p>
+                  <input disabled id="admin_viewtrack_sender_description" class="span6 input-mediam" type="text" placeholder="ของแตกหักง่าย เอกสาร สิ่งของทั่วไป">
+                </div>
+
+                <div class="input-append" style="font-size: 20px;">
+                    <p>
+                        น้ำหนัก (กิโลกรัม)
+                      </p>
+                 <input disabled id="admin_viewtrack_sender_weight" class="span6 input-mediam" type="text" placeholder="น้อยกว่า 1 กิโลกัรม / มากกว่า 10 กิโลกรัม / 100 กิโลกรัม">
+                </div>
+
+              </form>
+            </div>
+
+
+            <div class="span6">
+                <p class="animated fadeInUp">กรุณากรอกข้อมูลให้ครบถ้วน</p>
+                <h3>ชื่อที่อยู่ผู้รับ</h3>
+                <form>
+                  <div class="input-append" style="font-size: 20px;">
+                    <p>
+                      ชื่อ-นามสกุล
+                    </p>
+                    <input disabled id="admin_viewtrack_receiver_name" class="span6 input-mediam" type="text" placeholder="ชื่อ-นามสกุล">
+                  </div>
+  
+                  <div class="input-append" style="font-size: 20px;">
+                      <p>
+                          บ้านเลขที่
+                        </p>
+                    <input disabled id="admin_viewtrack_receiver_address" class="span6 input-mediam" type="text" placeholder="บ้านเลขที่">
+                  </div>
+  
+                  <div class="input-append" style="font-size: 20px;">
+                      <p>
+                          ตำบล
+                        </p>
+                    <input disabled id="admin_viewtrack_receiver_sub_distric" class="span6 input-mediam" type="text" placeholder="ตำบล">
+                  </div>
+  
+                  <div class="input-append" style="font-size: 20px;">
+                      <p>
+                          อำเภอ
+                        </p>
+                    <input disabled id="admin_viewtrack_receiver_distric" class="span6 input-mediam" type="text" placeholder="อำเภอ">
+                  </div>
+  
+                  <div class="input-append" style="font-size: 20px;">
+                      <p>
+                          จังหวัด
+                        </p>
+                    <input disabled id="admin_viewtrack_receiver_province" class="span6 input-mediam" type="text" placeholder="จังหวัด">
+                  </div>
+  
+                  <div class="input-append" style="font-size: 20px;">
+                      <p>
+                        รหัสไปรษณีย์
+                        </p>
+                    <input disabled id="admin_viewtrack_receiver_postid" class="span6 input-mediam" type="text" placeholder="รหัสไปรษณี">
+                  </div>
+  
+                  <div class="input-append" style="font-size: 20px;">
+                      <p>
+                          เบอร์โทรศัพท์
+                        </p>
+                    <input disabled id="admin_viewtrack_receiver_phone" class="span6 input-mediam" type="text" placeholder="เบอร์โทรศัพท์">
+                  </div>
+  
+                </form>
+              </div>
+          </div>
+
         </div>
 
     </section>
