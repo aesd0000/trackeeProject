@@ -167,6 +167,17 @@ function admin_viewtrack_onload() {
             document.getElementById('admin_viewtrack_receiver_postid').value =returnedData.receiver.postid
             document.getElementById('admin_viewtrack_receiver_phone').value =returnedData.receiver.phone
 
+            let track_log = returnedData.table
+            let admin_wrapper_table = document.getElementById("admin_wrapper_table");
+            let table_html = "";
+            let i;
+            for (i = 0; i < track_log.length; i++) {
+                table_html += '<div class="row"><div class="span1"><i class="ico icon-circled icon-bgprimary   icon-time icon-2x"></i></div id="table"><div class="span2" style="margin-top: 15px;">' + track_log[i].date + '</div><div  class="span2" style="margin-top: 15px;">' + track_log[i].time + '</div><div  class="span2" style="margin-top: 15px;">' + track_log[i].detail + '</div><div  class="span2" style="margin-top: 15px;">' + track_log[i].province_log + '</div></div></div>'
+
+
+            }
+            admin_wrapper_table.innerHTML = table_html
+
         }).fail(function () {
             console.log("error");
             window.alert("ไม่พบข้อมูลที่หา")
@@ -182,3 +193,49 @@ function getUrlVars() {
     });
     return vars;
 }
+
+
+var add_table = function() {
+
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth() + 1; //January is 0!
+
+    let yyyy = today.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd;
+    }
+    if (mm < 10) {
+        mm = '0' + mm;
+    }
+    let today_format = dd + '/' + mm + '/' + yyyy;
+
+    let datetext = today.toTimeString();
+    let time_now = datetext.split(' ')[0];
+
+    let add_table_track = getUrlVars()
+    let add_table_status = document.getElementById('add_table_status').value
+    let add_table_province = document.getElementById('add_table_province').value
+
+    let data_add_table=
+    {
+        track: add_table_track.track,
+        date:today_format,
+        time:time_now,
+        detail:add_table_status,
+        province_log:add_table_province
+    }
+
+    console.log(data_add_table)
+
+    $.post(urlEndpoint + '/search/cores/track/find_update',data_add_table ,
+        function (returnedData) {
+           location.reload();
+
+        }).fail(function () {
+            console.log("error");
+            window.alert("ไม่พบข้อมูลที่หา")
+        });
+
+}
+
