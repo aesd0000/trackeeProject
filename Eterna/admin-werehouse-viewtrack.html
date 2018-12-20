@@ -36,7 +36,7 @@
   ======================================================= -->
 </head>
 
-<body onload="admin_onload()">
+<body onload="admin_werehouse_viewtrack_onload()">
 
   <div id="wrapper">
 
@@ -98,7 +98,7 @@
                       <a href="index-werehouse.html">Warehouse <i class="icon-angle-down"></i></a>
                       <ul class="dropdown-menu">
                         <li><a href="index-warehouse-detail.html">Your Warehouse</a></li>
-                        
+
                       </ul>
                     </li>
 
@@ -109,14 +109,14 @@
                     <li>
                       <a href="contact.html">Contact</a>
                     </li>
-                    
+
                     <li class="dropdown active">
-                      <a >Admin</a>
-                      <ul class="dropdown-menu">
-                        <li><a href="admin_werehouse.html">Warehouse</a></li>
-                        <li><a href="admin.html">Tracking</a></li>
-                      </ul>
-                    </li>
+                        <a >Admin</a>
+                        <ul class="dropdown-menu">
+                          <li><a href="admin_werehouse.html">Warehouse</a></li>
+                          <li><a href="admin.html">Tracking</a></li>
+                        </ul>
+                      </li>
 
                   </ul>
                 </nav>
@@ -154,38 +154,98 @@
 
         <div class="span12">
           <h4 class="title"><strong>ตารางการจัดส่ง</strong> สำหรับผู้ดูแล<span></span></h4>
+          <br>
+          <div class="row">
+            <div class="span4">
+              <h4>
+                Warehouse Number
+              </h4>
+            </div>
+            <div class="span8">
+              <h4 id="admin_werehouse_viewtrack_track">
+                test
+              </h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span3"></div>
+            <div class="span6">
+              <p class="animated fadeInUp">กรุณากรอกข้อมูลให้ครบถ้วน</p>
+              <h3>ชื่อผู้เช่า</h3>
+              <form>
+                <div class="input-append" style="font-size: 20px;">
+                  <p>
+                    ชื่อ-นามสกุล
+                  </p>
+                  <input disabled id="admin_werehouse_viewtrack_name" class="span6 input-mediam" type="text" placeholder="ชื่อ-นามสกุล">
+                </div>
 
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>
-                  ลำดับ
-                </th>
-                <th>
-                  เลขพัสดุ
-                </th>
-                <th>
-                  ชื่อ
-                </th>
-                <th>
-                  ที่อยู่
-                </th>
-                <th>
-                  รหัสไปรษณีย์
-                </th>
-                <th>
-                  เบอร์โทรศัพท์
-                </th>
-                <th>
-                  ประเภทพัสดุ
-                </th>
+                <div class="input-append" style="font-size: 20px;">
+                  <p>
+                    บ้านเลขที่
+                  </p>
+                  <input disabled id="admin_werehouse_viewtrack_address" class="span6 input-mediam" type="text"
+                    placeholder="บ้านเลขที่">
+                </div>
 
-              </tr>
-            </thead>
-            <tbody id="myHTMLWrapper">
+                <div class="input-append" style="font-size: 20px;">
+                  <p>
+                    ตำบล
+                  </p>
+                  <input disabled id="admin_werehouse_viewtrack_sub_distric" class="span6 input-mediam" type="text"
+                    placeholder="ตำบล">
+                </div>
 
-            </tbody>
-          </table>
+                <div class="input-append" style="font-size: 20px;">
+                  <p>
+                    อำเภอ
+                  </p>
+                  <input disabled id="admin_werehouse_viewtrack_distric" class="span6 input-mediam" type="text"
+                    placeholder="อำเภอ">
+                </div>
+
+                <div class="input-append" style="font-size: 20px;">
+                  <p>
+                    จังหวัด
+                  </p>
+                  <input disabled id="admin_werehouse_viewtrack_province" class="span6 input-mediam" type="text"
+                    placeholder="จังหวัด">
+                </div>
+
+                <div class="input-append" style="font-size: 20px;">
+                  <p>
+                    รหัสไปรษณีย์
+                  </p>
+                  <input disabled id="admin_werehouse_viewtrack_postid" class="span6 input-mediam" type="text" placeholder="รหัสไปรษณี">
+                </div>
+
+                <div class="input-append" style="font-size: 20px;">
+                  <p>
+                    เบอร์โทรศัพท์
+                  </p>
+                  <input disabled id="admin_werehouse_viewtrack_phone" class="span6 input-mediam" type="text" placeholder="เบอร์โทรศัพท์">
+                </div>
+
+                <div class="input-append" style="font-size: 20px;">
+                  <p>
+                    ประเภทของคลังสินค้า
+                  </p>
+                  <input disabled id="admin_werehouse_viewtrack_description" class="span6 input-mediam" type="text"
+                    placeholder="ของแตกหักง่าย เอกสาร สิ่งของทั่วไป">
+                </div>
+
+       
+
+              </form>
+            </div>
+            <div class="span3"></div>
+          </div>
+
+          <div class="row">
+              <div class="span3"></div>
+              <button class="btn btn-danger btn-medium, span6" type="submit"  onclick=admin_werehouse_remove()>ยกเลิกการเช่า</button>
+              <div class="span3"></div>
+          </div>
         </div>
 
     </section>

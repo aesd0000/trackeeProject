@@ -150,7 +150,7 @@ function admin_onload() {
             let myHTML = '';
 
             for (let i = 0; i < returnedData.length; i++) {
-                let address_for = returnedData[i].sender.address + " " + returnedData[i].sender.sub_distric + " " + returnedData[i].sender.distric + " " + returnedData[i].sender.province + " " + returnedData[i].sender.postid
+                let address_for = returnedData[i].sender.address + " " + returnedData[i].sender.sub_distric + " " + returnedData[i].sender.distric + " " + returnedData[i].sender.province + " "
                 myHTML += '<tr><td>' + (i + 1) + '</td><td><a href="/admin-viewtrack.html?track=' + returnedData[i].track + '">' + returnedData[i].track + '</a></td> <td >' + returnedData[i].sender.name + '</td> <td >' + address_for + ' </td><td >' + returnedData[i].sender.postid + '</td> <td >' + returnedData[i].sender.phone + ' </td><td>' + returnedData[i].description + ' </td> </tr>';
             }
 
@@ -387,5 +387,72 @@ function werehouse_viewtrack_onload(){
             window.alert("ไม่พบข้อมูลที่หา")
         });
 
+
+}
+
+function admin_werehouse_onload() {
+
+
+    $.post(urlEndpoint + '/search/cores/were/query_all_track', {},
+        function (returnedData) {
+            console.log(returnedData)
+            let wrapper = document.getElementById("werehouse_myHTMLWrapper");
+
+            let myHTML = '';
+
+            for (let i = 0; i < returnedData.length; i++) {
+                let address_for = returnedData[i].address + " " + returnedData[i].sub_distric + " " + returnedData[i].distric + " " + returnedData[i].province + " " 
+                myHTML += '<tr><td>' + (i + 1) + '</td><td><a href="/admin-werehouse-viewtrack.html?track=' + returnedData[i].track + '">' + returnedData[i].track + '</a></td> <td >' + returnedData[i].name + '</td> <td >' + address_for + ' </td><td >' + returnedData[i].postid + '</td> <td >' + returnedData[i].phone + ' </td><td>' + returnedData[i].description + ' </td> </tr>';
+            }
+
+            wrapper.innerHTML = myHTML
+
+
+        }).fail(function () {
+            console.log("error");
+        });
+
+}
+
+function admin_werehouse_viewtrack_onload(){
+
+    let admin_viewtrack = getUrlVars()
+    $.post(urlEndpoint + '/search/cores/were/query', admin_viewtrack,
+        function (returnedData) {
+
+            console.log(returnedData)
+            document.getElementById('admin_werehouse_viewtrack_track').innerHTML = returnedData.track
+            document.getElementById('admin_werehouse_viewtrack_name').value = returnedData.name
+            document.getElementById('admin_werehouse_viewtrack_address').value = returnedData.address
+            document.getElementById('admin_werehouse_viewtrack_sub_distric').value = returnedData.sub_distric
+            document.getElementById('admin_werehouse_viewtrack_distric').value = returnedData.distric
+            document.getElementById('admin_werehouse_viewtrack_province').value = returnedData.province
+            document.getElementById('admin_werehouse_viewtrack_postid').value = returnedData.postid
+            document.getElementById('admin_werehouse_viewtrack_phone').value = returnedData.phone
+            document.getElementById('admin_werehouse_viewtrack_description').value = returnedData.description
+
+
+
+
+        }).fail(function () {
+            console.log("error");
+            window.alert("ไม่พบข้อมูลที่หา")
+        });
+
+}
+
+var admin_werehouse_remove = function  () {
+
+    let admin_viewtrack = getUrlVars()
+
+    $.post(urlEndpoint + '/were/cores/were/remove', admin_viewtrack,
+        function (returnedData) {
+            console.log(returnedData)
+            window.location.href = "/admin_werehouse.html"
+
+        }).fail(function () {
+            console.log("error");
+            window.alert("ไม่พบข้อมูลที่หา")
+        });
 
 }
