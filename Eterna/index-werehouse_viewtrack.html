@@ -17,7 +17,6 @@
   <link href="css/camera.css" rel="stylesheet" />
   <link href="css/jquery.bxslider.css" rel="stylesheet" />
   <link href="css/style.css" rel="stylesheet" />
-  <link href="css/modal.css" rel="stylesheet" />
 
   <!-- Theme skin -->
   <link href="color/default.css" rel="stylesheet" />
@@ -37,7 +36,7 @@
   ======================================================= -->
 </head>
 
-<body>
+<body onload="werehouse_viewtrack_onload()">
 
   <div id="wrapper">
 
@@ -80,7 +79,7 @@
                 <nav>
                   <ul class="nav topnav">
                     <li class="dropdown ">
-                      <a href="index.html"><i class="icon-home"></i> Home </a>
+                      <a href="index.html"><i class="icon-home"></i> Home </i></a>
                     </li>
 
                     <li class="dropdown">
@@ -130,92 +129,17 @@
     <section id="featured">
 
       <!-- opt in area for landing page -->
-      <div class="landing">
+      <br>
+      <div class="admin">
         <div class="container">
-          <h2><strong>บริการ <span class="colored">เช่าคลังสินค้า</span></strong></h2>
           <div class="row">
-            <div class="span3"></div>
-            <div class="span6">
-              <p class="animated fadeInUp">กรุณากรอกข้อมูลให้ครบถ้วน</p>
-              <h3>เช่าคลังสินค้า</h3>
-              <form>
-                <div class="input-append" style="font-size: 20px;">
-                  <p>
-                    ชื่อ-นามสกุล
-                  </p>
-                  <input id="were_name" class="span6 input-mediam" type="text" placeholder="ชื่อ-นามสกุล">
-                </div>
+            <div class="span12">
+              <h2><strong><span class="colored">Tracking Number</span></strong></h2>
 
-                <div class="input-append" style="font-size: 20px;">
-                  <p>
-                    บ้านเลขที่
-                  </p>
-                  <input id="were_address" class="span6 input-mediam" type="text" placeholder="บ้านเลขที่">
-                </div>
-
-                <div class="input-append" style="font-size: 20px;">
-                  <p>
-                    ตำบล
-                  </p>
-                  <input id="were_sub_distric" class="span6 input-mediam" type="text" placeholder="ตำบล">
-                </div>
-
-                <div class="input-append" style="font-size: 20px;">
-                  <p>
-                    อำเภอ
-                  </p>
-                  <input id="were_distric" class="span6 input-mediam" type="text" placeholder="อำเภอ">
-                </div>
-
-                <div class="input-append" style="font-size: 20px;">
-                  <p>
-                    จังหวัด
-                  </p>
-                  <input id="were_province" class="span6 input-mediam" type="text" placeholder="จังหวัด">
-                </div>
-
-                <div class="input-append" style="font-size: 20px;">
-                  <p>
-                    รหัสไปรษณีย์
-                  </p>
-                  <input id="were_postid" class="span6 input-mediam" type="text" placeholder="รหัสไปรษณี">
-                </div>
-
-                <div class="input-append" style="font-size: 20px;">
-                  <p>
-                    เบอร์โทรศัพท์
-                  </p>
-                  <input id="were_phone" class="span6 input-mediam" type="text" placeholder="เบอร์โทรศัพท์">
-                </div>
-
-                <div class="input-append" style="font-size: 20px;">
-                  <p>
-                    คลังสินค้า
-                  </p>
-                  <select id="were_description" class="span6">
-                    <option value="คลังสินค้าทั่วไป">คลังสินค้าทั่วไป</option>
-                    <option value="คลังสินค้าห้องเย็น">คลังสินค้าห้องเย็น</option>
-                    <option value="คลังสินค้าความปลอดภัยสูง">คลังสินค้าความปลอดภัยสูง</option>
-                    <option value="คลังสินค้าห้องเย็นความปลอดภัยสูง">คลังสินค้าห้องเย็นความปลอดภัยสูง</option>
-                  </select>
-
-                </div>
-
-
-              </form>
             </div>
-            <div class="span3"></div>
           </div>
-          <div class="row">
-            <div class="span3"></div>
-            <button class="btn btn-theme btn-large span6" type="submit" onclick=werehouse()>ขอเช่าคลังสินค้า</button>
-            <div class="span3"></div>
-          </div>
-
         </div>
       </div>
-
-
 
     </section>
     <!-- /section featured -->
@@ -224,9 +148,49 @@
       <div class="container">
 
 
+        <div class="span12">
+          <h4 class="title"><strong>โกดังสินค้าสำหรับ</strong>สำหรับลูกค้า<span></span></h4>
+          <br>
+          <div class="row">
+            <div class="span4">
+              <h4>
+                Warehouse Number
+              </h4>
+            </div>
+            <div class="span8"><strong>
+                <h4 style="color: red;" id="werehouse_viewtrack_track">
+                </h4>
+              </strong>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span3"></div>
 
+            <div class="span6">
+              <div class="flyRight">
+                <h4><strong><span class="colored">ผู้เช่า</span></strong></h4>
+                <h3 id="werehouse_viewtrack_description"></h3>
+                <i class="ico icon-circled icon-bgprimary  icon-user icon-3x" style="background:#b56b3f"></i>
+
+                <br>
+                <h3 id="werehouse_viewtrack_name">นายอนุกูล จิ๋วบุญ</h3>
+                <h3 id="werehouse_viewtrack_address">
+                  173 ม.1 ต.ห้วยคต อ.ห้วยคต จ.อุทัยธานี 61170
+                </h3>
+                <h3 id="werehouse_viewtrack_phone">094-7048434</h3>
+                
+                <div class="blankline"></div>
+              </div>
+            </div>
+            <div class="span3"></div>
+
+
+          </div>
+          <hr>
+        </div>
+      </div>
     </section>
-
+    <br><br>
 
     <footer>
       <div class="container">
